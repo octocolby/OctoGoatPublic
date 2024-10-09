@@ -1,0 +1,50 @@
+﻿@model IEnumerable<UserProfile>
+
+@{
+    ViewData["Title"] = "Tweeter";
+}
+
+<div class="text-center">
+    <h1 style="color:#0d80d8">Admin zone: User List</h1>
+    <h2>This page is for administrators only. If you aren't an admin, and you are reading this then you are breaking the law.</h2>
+    <table class="gradient-table">
+    <tbody>
+    <tr>
+        <td style="color:white;">
+            <a>Username</a>
+        </td>
+        <td style="color:white;">
+            <a>IsAdmin</a>
+        </td>
+        <td style="color:white;">
+            <a>Profile Picture</a>
+        </td>
+    </tr>
+    </tbody>
+    </table>
+        @foreach (var user in Model)
+    {
+        <table class="gradient-table">
+            <tbody>
+            <tr>
+                <td style="color:white;">
+                    @user.UserName
+                </td>
+                <td style="color:white;">
+                    @if (@user.IsAdmin == true)
+                    {
+                        <a style="color: green">ADMIN</a>
+                    }
+                    else
+                    {
+                        <a style="color: grey">not admin</a>
+                    }
+                </td>
+                <td style="color:white;">
+                    <img src="/images/@user.ProfilePicture" width="50">
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    }
+</div>

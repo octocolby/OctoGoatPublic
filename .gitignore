@@ -1,0 +1,7 @@
+.idea
+obj
+bin
+MyDatabase.db
+MyDatabase.db-shm
+MyDatabase.db-wal
+.DS_Store

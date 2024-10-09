@@ -1,0 +1,55 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>@ViewData["Title"] - OctoGoat</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
+    <link rel="stylesheet" href="~/OctoGoat.styles.css" asp-append-version="true"/>
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Days+One" />
+</head>
+<body>
+<header>
+    <nav>
+        <a asp-controller="Home" asp-action="Index">OctoGoat</a>
+        <a asp-controller="Home" asp-action="Index">Home</a>
+        <a asp-controller="Tweeter" asp-action="Index">Create Tweet</a>
+        <a asp-controller="Home" asp-action="ApplyForCheckmark">Apply for Checkmark</a>
+        @if (SignInManager.IsSignedIn(User))
+        {
+            <span>
+                Hello <strong>@UserManager.GetUserName(User)</strong>!
+            </span>
+            <a asp-controller="Account" asp-action="Logout">Logout</a>
+            <a asp-controller="Account" asp-action="MyAccount">My Account</a>
+            <a asp-area="" asp-controller="Account" asp-action="ChangePassword">Change Password</a>
+
+        } else
+        {
+            <a id="login" asp-controller="Account" asp-action="Login" asp-route-returnUrl="@Context.Request.Path">Log In</a>
+            <a asp-area="" asp-controller="Account" asp-action="Register">Register</a>
+        }
+    </nav>
+</header>
+<div class="container">
+    <main role="main" class="pb-3">
+        @RenderBody()
+    </main>
+</div>
+
+<footer class="border-top footer text-muted">
+    <div class="container">
+        &copy; 2024 - Tweeter
+    </div>
+    <a style="visibility: hidden">I hide my secrets in secret.png</a>
+</footer>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+@await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

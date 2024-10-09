@@ -1,0 +1,13 @@
+@using System.Net.Mime
+@model UserProfile
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<h2>test page</h2>
+
+@Model.UserName
+<img src="/images/@Model.ProfilePicture" width="50">
+<img src="/tick.png" width="20">

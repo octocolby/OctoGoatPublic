@@ -1,0 +1,84 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #0d80d8;
+}
+
+h1 {
+  font-family: "Days One";
+  font-size: 34px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 700;
+  line-height: 26.4px;
+  margin-top: 20px;
+}
+
+nav {
+  width: 100%;
+  background-color:#0d80d8;
+  color:white;
+  overflow: hidden;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+  font-family: "Days One";
+  font-size: 16px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 700;
+  line-height: 26.4px;
+}
+
+nav a {
+  display: block;
+  float: left;
+  color: whitesmoke;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+nav a:hover {
+  background-color: #006cbf;
+  color: #003257;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+table {
+  border-collapse: collapse;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  font-family: "Days One";
+  font-size: 14px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 200;
+  line-height: 26.4px;
+}
+
+td {
+  padding: 10px;
+  text-align: center;
+  border: none;
+  background-color: transparent;  /* Make cell backgrounds transparent */
+}
+
+/* Apply the gradient background to the entire table */
+.gradient-table {
+  background: linear-gradient(to bottom, #0d80d8, #bbcdda);
+}

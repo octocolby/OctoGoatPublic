@@ -1,0 +1,38 @@
+﻿@using System.Runtime.CompilerServices
+@using Microsoft.AspNetCore.Identity
+@model TweeterModel?
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@{
+    ViewData["Title"] = "Create Tweeter";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Create Tweeter</h1>
+    <form method="post">
+        @if (SignInManager.IsSignedIn(User))
+        {
+            <span>
+                Hello <strong>@UserManager.GetUserName(User)</strong>, what's on your mind?
+            </span>
+            <input type="text" name="name" hidden="true" value="@UserManager.GetUserName(User)">
+        }
+        <br>
+        Tweet:
+        <textarea name="tweet" rows="2" cols="20" class=""></textarea>
+        <input type="submit" value="Submit" style="float: right;">
+    </form>
+    @if (Model != null)
+    {
+        <br></br>
+        <span>Name: @Model.Name</span>
+        <br></br>
+        <span>Tweet: @Html.Raw(@Model.Tweet)</span>
+        <br>
+        @if (Model.Secret != null)
+        {
+            <h1>You found the secret: @Model.Secret.Secret</h1>
+        }
+    }
+</div>

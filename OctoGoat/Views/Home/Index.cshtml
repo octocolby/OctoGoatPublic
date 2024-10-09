@@ -1,0 +1,40 @@
+﻿@model IEnumerable<TweeterModel>
+
+@{
+    ViewData["Title"] = "Tweeter";
+}
+
+<div class="text-center">
+    <h1 style="color:#0d80d8">Tweeter</h1>
+    
+    @foreach (var tweeter in Model)
+    {
+        <table class="gradient-table">
+            <tbody>
+            <tr>
+                <th></th>
+                <th style="width:150px; color:white;">Name:</th>
+                <th style="width:300px; color:white;">Tweet:</th>
+            </tr>
+            <tr>
+                <td style="color:white;">
+                    <img src="/images/@tweeter.ProfilePicture" width="50">
+                </td>
+                <td style="color:white;">
+                    @if (@tweeter.Checkmark == true)
+                    {
+                        <img src="tick.png" width="20">
+                    }
+                    @tweeter.Name
+                </td>
+                <td style="color:white;">
+                    @tweeter.Tweet
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    }
+    <div id="flag" style='visibility:hidden; overflow:hidden; height:0; width:0;'>
+        put flag here
+    </div>
+</div>

@@ -1,0 +1,7 @@
+version: '3'
+services:
+  octogoat:
+    container_name: 'octogoat'
+    build: .
+    ports:
+      - '8080:8080'

@@ -1,0 +1,37 @@
+﻿@using Microsoft.AspNetCore.Identity
+@model CheckmarkModel?
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@{
+    ViewData["Title"] = "Create Tweeter";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Apply for Checkmark</h1>
+    <form method="post">
+        @if (SignInManager.IsSignedIn(User))
+        {
+            <span>
+                <strong>@UserManager.GetUserName(User)</strong>, tell us why you deserve a checkmark?
+            </span>
+            <input type="text" name="name" hidden="true" value="@UserManager.GetUserName(User)">
+        }
+        <br>
+        Why do you deserve a checkmark:
+        <textarea name="null" rows="2" cols="20" class=""></textarea>
+        <input type="submit" value="Submit" style="float: right;">
+    </form>
+    @if (Model != null)
+    {
+        <br></br>
+        <span>Name: @Model.Name</span>
+        <br></br>
+        <span>Checkmark: @Model.Approved</span>
+        <br>
+        @if (Model.Secret != null)
+        {
+            <h1>You found the secret: @Model.Secret.Secret</h1>
+        }
+    }
+</div>
